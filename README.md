@@ -1,73 +1,145 @@
-# React + TypeScript + Vite
+# Fusion Limited — Landing Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive landing page for **Fusion Limited**, a specialist wellhead solutions partner serving the oil and gas industry. Built as a client project by [Bexoni](https://www.bexoni.com/).
 
-Currently, two official plugins are available:
+**Live Site:** [https://www.bexoni.com/](https://www.bexoni.com/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Overview
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+Fusion Limited provides comprehensive wellhead maintenance, repair, pressure testing, equipment procurement, and emergency response services. This site serves as their public-facing landing page, showcasing services, client testimonials, a downtime cost calculator, company story, and contact information.
 
-## Expanding the ESLint configuration
+### Pages
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+| Route | Description |
+|-------|-------------|
+| `/` | Home — hero, features, testimonials, ROI calculator, CTA |
+| `/about` | About — company overview, bento grid of services, project showcase |
+| `/faqs` | FAQs — frequently asked questions |
+| `/blogs` | Blog — articles and updates |
+| `/tools` | Tools — utility tools |
+| `/story` | Story — the founding story behind Fusion |
+| `/contact` | Contact — contact form with email, phone, and address |
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Tech Stack
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+| Technology | Purpose |
+|------------|---------|
+| [Vite](https://vite.dev/) | Build tool & dev server |
+| [React 19](https://react.dev/) | UI framework |
+| [TypeScript](https://www.typescriptlang.org/) | Type safety |
+| [SWC](https://swc.rs/) | Fast compilation (via `@vitejs/plugin-react-swc`) |
+| [Tailwind CSS v4](https://tailwindcss.com/) | Utility-first styling |
+| [shadcn/ui](https://ui.shadcn.com/) | UI component library (Button, Select, Slider, Card, Sheet) |
+| [Radix UI](https://www.radix-ui.com/) | Accessible headless primitives |
+| [Framer Motion](https://www.framer.com/motion/) | Animations and transitions |
+| [React Router](https://reactrouter.com/) | Client-side routing |
+| [Lucide React](https://lucide.dev/) | Icon library |
+| [pnpm](https://pnpm.io/) | Package manager |
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+- **Node.js** >= 18
+- **pnpm** >= 8
+
+### Installation
+
+```bash
+# Clone the repository
+git clone <repo-url>
+cd fusion
+
+# Install dependencies
+pnpm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Development
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+# Start the dev server
+pnpm run dev
 ```
+
+The app will be available at [http://localhost:5173](http://localhost:5173).
+
+### Build
+
+```bash
+# Type-check and build for production
+pnpm run build
+```
+
+Output is written to the `dist/` directory.
+
+### Preview
+
+```bash
+# Preview the production build locally
+pnpm run preview
+```
+
+### Lint
+
+```bash
+# Run ESLint
+pnpm run lint
+```
+
+---
+
+## Project Structure
+
+```
+fusion/
+├── public/                 # Static assets
+├── src/
+│   ├── components/         # Shared components (header, footer, layout, sections)
+│   │   ├── ui/             # shadcn/ui primitives (button, select, slider, etc.)
+│   │   ├── header.tsx
+│   │   ├── footer.tsx
+│   │   ├── Layout.tsx
+│   │   ├── hero.tsx
+│   │   ├── features-section.tsx
+│   │   ├── testimonials-section.tsx
+│   │   ├── roi-calculator-section.tsx
+│   │   ├── cta-section.tsx
+│   │   └── ...
+│   ├── pages/              # Route-level page components
+│   │   ├── Home.tsx
+│   │   ├── About.tsx
+│   │   ├── Blog.tsx
+│   │   ├── Contact.tsx
+│   │   ├── Faqs.tsx
+│   │   ├── Story.tsx
+│   │   └── Tools.tsx
+│   ├── lib/                # Utilities (cn helper)
+│   ├── App.tsx             # Router setup
+│   ├── main.tsx            # Entry point
+│   └── index.css           # Tailwind imports, custom theme, animations
+├── index.html
+├── vite.config.ts
+├── tsconfig.json
+├── package.json
+└── README.md
+```
+
+---
+
+## Theme
+
+The site supports **light and dark mode** with system detection and a manual toggle. Custom theme colours are defined in `src/index.css` using Tailwind CSS v4's `@theme inline` syntax:
+
+- `--color-bexoni: #9948fb` — primary brand purple used for titles, buttons, and accents
+
+---
+
+## Credits
+
+Designed and developed by [Bexoni](https://www.bexoni.com/).
