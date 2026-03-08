@@ -53,12 +53,12 @@ function AnimatedPressureChart() {
 
   const points = [
     { x: 0, y: 50 },
-    { x: 15, y: 35 },
-    { x: 30, y: 45 },
-    { x: 45, y: 20 },
-    { x: 60, y: 30 },
-    { x: 75, y: 15 },
-    { x: 100, y: 25 },
+    { x: 15, y: 40 },
+    { x: 30, y: 42 },
+    { x: 45, y: 22 },
+    { x: 60, y: 28 },
+    { x: 75, y: 18 },
+    { x: 100, y: 22 },
   ]
 
   const pathD = points.reduce((acc, point, i) => {
@@ -90,24 +90,22 @@ export default function About() {
   return (
     <div className="flex justify-center p-4 md:p-6">
       <div className="md:w-[85%] w-full space-y-16 py-12">
-        {/* Page Header */}
         <section className="space-y-4">
           <h1 className="text-5xl md:text-6xl font-bold tracking-tight text-bexoni">
             About Fusion Limited
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl">
-            A specialist wellhead solutions partner serving the oil and gas industry. We deliver expert maintenance,
-            repair, and integrity services that keep your operations running safely and on schedule.
+            Fusion Limited is a specialist wellhead solutions partner serving the Nigerian oil and gas sector through
+            VETCO GRAY equipment supply, installation support, maintenance planning, and subsea project capability.
           </p>
         </section>
 
-        {/* Stats */}
         <section className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {[
-            { value: "15+", label: "Years Experience" },
-            { value: "500+", label: "Projects Completed" },
-            { value: "24/7", label: "Emergency Response" },
-            { value: "99.8%", label: "Safety Record" },
+            { value: "24/7", label: "Critical Operations Support" },
+            { value: "15,000 psi+", label: "Subsea Pressure Capability" },
+            { value: "1,000+", label: "Partner Brand Subsea Track Record" },
+            { value: "100+ yrs", label: "Wellhead Innovation Heritage" },
           ].map((stat) => (
             <div key={stat.label} className="border border-border p-6 bg-card/80 backdrop-blur-sm">
               <div className="text-3xl md:text-4xl font-bold text-bexoni mb-1">{stat.value}</div>
@@ -116,7 +114,6 @@ export default function About() {
           ))}
         </section>
 
-        {/* Bento Grid - Services */}
         <section>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -125,11 +122,11 @@ export default function About() {
             className="mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Everything you need to stay operational
+              Lifecycle wellhead support under one roof
             </h2>
             <p className="text-muted-foreground max-w-2xl">
-              Comprehensive wellhead services under one roof. From routine maintenance to emergency intervention,
-              Fusion has you covered.
+              From equipment specification to installation assurance, maintenance, workover support, and subsea
+              readiness, Fusion delivers wellhead services around the full operating lifecycle.
             </p>
           </motion.div>
 
@@ -140,7 +137,6 @@ export default function About() {
             animate={isGridInView ? "visible" : "hidden"}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
           >
-            {/* Large card - Wellhead Maintenance */}
             <motion.div
               variants={itemVariants}
               className="md:col-span-2 group relative p-6 border border-border bg-card/80 backdrop-blur-sm hover:border-bexoni/40 hover:scale-[1.01] transition-all duration-300 overflow-hidden"
@@ -148,22 +144,22 @@ export default function About() {
               <div className="flex items-start justify-between mb-8">
                 <div>
                   <div className="p-2 bg-bexoni/10 w-fit mb-4">
-                    <Wrench className="w-5 h-5 text-bexoni" strokeWidth={1.5} />
+                    <Package className="w-5 h-5 text-bexoni" strokeWidth={1.5} />
                   </div>
-                  <h3 className="text-xl font-semibold text-foreground mb-2">Wellhead Maintenance & Repair</h3>
+                  <h3 className="text-xl font-semibold text-foreground mb-2">Authorized VETCO GRAY Wellhead Solutions</h3>
                   <p className="text-muted-foreground text-sm max-w-md">
-                    Comprehensive maintenance programs and rapid repair services for all major wellhead systems. We keep
-                    your assets performing at peak efficiency.
+                    Fusion combines local project accountability with VETCO GRAY technology across wellhead housings,
+                    casing hangers, seal systems, connectors, installation tooling, and subsea support requirements.
                   </p>
                 </div>
                 <SystemStatus />
               </div>
               <div className="grid grid-cols-4 gap-4">
                 {[
-                  { value: "98%", label: "Uptime" },
-                  { value: "4hr", label: "Avg Response" },
-                  { value: "250+", label: "Wells Serviced" },
-                  { value: "0", label: "Incidents" },
+                  { value: "MS-700", label: "Housing Family" },
+                  { value: "MS-1", label: "Metal Seal" },
+                  { value: "H-4", label: "Connector Series" },
+                  { value: "SHD", label: "Critical Service" },
                 ].map((metric) => (
                   <div key={metric.label} className="text-center">
                     <div className="text-2xl font-bold text-foreground mb-1">{metric.value}</div>
@@ -173,82 +169,6 @@ export default function About() {
               </div>
             </motion.div>
 
-            {/* Pressure Testing */}
-            <motion.div
-              variants={itemVariants}
-              className="group relative p-6 border border-border bg-card/80 backdrop-blur-sm hover:border-bexoni/40 hover:scale-[1.01] transition-all duration-300"
-            >
-              <div className="p-2 bg-bexoni/10 w-fit mb-4">
-                <Gauge className="w-5 h-5 text-bexoni" strokeWidth={1.5} />
-              </div>
-              <h3 className="text-lg font-semibold text-foreground mb-2">Pressure Testing</h3>
-              <p className="text-muted-foreground text-sm mb-4">
-                Hydrostatic and pneumatic testing to verify wellhead integrity and regulatory compliance.
-              </p>
-              <AnimatedPressureChart />
-            </motion.div>
-
-            {/* Equipment Supply */}
-            <motion.div
-              variants={itemVariants}
-              className="group relative p-6 border border-border bg-card/80 backdrop-blur-sm hover:border-bexoni/40 hover:scale-[1.01] transition-all duration-300"
-            >
-              <div className="p-2 bg-bexoni/10 w-fit mb-4">
-                <Package className="w-5 h-5 text-bexoni" strokeWidth={1.5} />
-              </div>
-              <h3 className="text-lg font-semibold text-foreground mb-2">Equipment Supply</h3>
-              <p className="text-muted-foreground text-sm mb-4">
-                OEM and aftermarket parts sourced and delivered for all major wellhead manufacturers.
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {["Valves", "Spools", "Hangers", "Seals", "Adapters"].map((part) => (
-                  <span key={part} className="px-2 py-1 text-xs bg-secondary text-muted-foreground">{part}</span>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* Emergency Response */}
-            <motion.div
-              variants={itemVariants}
-              className="group relative p-6 border border-border bg-card/80 backdrop-blur-sm hover:border-bexoni/40 hover:scale-[1.01] transition-all duration-300"
-            >
-              <div className="p-2 bg-bexoni/10 w-fit mb-4">
-                <Phone className="w-5 h-5 text-bexoni" strokeWidth={1.5} />
-              </div>
-              <h3 className="text-lg font-semibold text-foreground mb-2">24/7 Emergency Response</h3>
-              <p className="text-muted-foreground text-sm mb-4">
-                Round-the-clock mobilisation for critical wellhead incidents. Our teams are ready when you need them most.
-              </p>
-              <div className="flex items-center gap-2 text-emerald-500 text-sm">
-                <span className="relative flex h-3 w-3">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
-                </span>
-                <span className="font-mono">Online</span>
-                <span className="text-muted-foreground/60">— always available</span>
-              </div>
-            </motion.div>
-
-            {/* Safety & Compliance */}
-            <motion.div
-              variants={itemVariants}
-              className="group relative p-6 border border-border bg-card/80 backdrop-blur-sm hover:border-bexoni/40 hover:scale-[1.01] transition-all duration-300"
-            >
-              <div className="p-2 bg-bexoni/10 w-fit mb-4">
-                <ShieldCheck className="w-5 h-5 text-bexoni" strokeWidth={1.5} />
-              </div>
-              <h3 className="text-lg font-semibold text-foreground mb-2">Safety & Compliance</h3>
-              <p className="text-muted-foreground text-sm mb-4">
-                Full regulatory compliance management and safety-first operations across every project.
-              </p>
-              <div className="flex items-center gap-2">
-                {["ISO 9001", "API Q1", "OSHA"].map((cert) => (
-                  <span key={cert} className="px-2 py-1 text-xs bg-secondary text-muted-foreground">{cert}</span>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* Field Engineering */}
             <motion.div
               variants={itemVariants}
               className="group relative p-6 border border-border bg-card/80 backdrop-blur-sm hover:border-bexoni/40 hover:scale-[1.01] transition-all duration-300"
@@ -256,55 +176,130 @@ export default function About() {
               <div className="p-2 bg-bexoni/10 w-fit mb-4">
                 <HardHat className="w-5 h-5 text-bexoni" strokeWidth={1.5} />
               </div>
-              <h3 className="text-lg font-semibold text-foreground mb-2">Field Engineering</h3>
+              <h3 className="text-lg font-semibold text-foreground mb-2">Installation & Running Services</h3>
               <p className="text-muted-foreground text-sm mb-4">
-                Experienced engineers deployed on-site for installation, commissioning, and troubleshooting.
+                Trained personnel support running tools, landing confirmation, orientation, and locking for safer,
+                more controlled field execution.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {["Running Tools", "Landing", "Orientation", "Lockdown"].map((item) => (
+                  <span key={item} className="px-2 py-1 text-xs bg-secondary text-muted-foreground">{item}</span>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div
+              variants={itemVariants}
+              className="group relative p-6 border border-border bg-card/80 backdrop-blur-sm hover:border-bexoni/40 hover:scale-[1.01] transition-all duration-300"
+            >
+              <div className="p-2 bg-bexoni/10 w-fit mb-4">
+                <Gauge className="w-5 h-5 text-bexoni" strokeWidth={1.5} />
+              </div>
+              <h3 className="text-lg font-semibold text-foreground mb-2">Subsea Wellhead Systems</h3>
+              <p className="text-muted-foreground text-sm mb-4">
+                Deepwater and subsea solutions including high-capacity housings, tubing head spools, and connectors
+                designed for demanding pressure environments.
+              </p>
+              <AnimatedPressureChart />
+            </motion.div>
+
+            <motion.div
+              variants={itemVariants}
+              className="group relative p-6 border border-border bg-card/80 backdrop-blur-sm hover:border-bexoni/40 hover:scale-[1.01] transition-all duration-300"
+            >
+              <div className="p-2 bg-bexoni/10 w-fit mb-4">
+                <Wrench className="w-5 h-5 text-bexoni" strokeWidth={1.5} />
+              </div>
+              <h3 className="text-lg font-semibold text-foreground mb-2">Maintenance & Workover</h3>
+              <p className="text-muted-foreground text-sm mb-4">
+                Extend well life with structured maintenance support, component service planning, and workover-focused
+                intervention assistance.
               </p>
               <div className="flex items-center gap-2 text-bexoni text-sm">
-                <span className="font-mono">50+</span>
-                <span className="text-muted-foreground/60">field engineers worldwide</span>
+                <span className="font-mono">Lifecycle</span>
+                <span className="text-muted-foreground/60">support for producing assets</span>
+              </div>
+            </motion.div>
+
+            <motion.div
+              variants={itemVariants}
+              className="group relative p-6 border border-border bg-card/80 backdrop-blur-sm hover:border-bexoni/40 hover:scale-[1.01] transition-all duration-300"
+            >
+              <div className="p-2 bg-bexoni/10 w-fit mb-4">
+                <ShieldCheck className="w-5 h-5 text-bexoni" strokeWidth={1.5} />
+              </div>
+              <h3 className="text-lg font-semibold text-foreground mb-2">Connector Reconditioning</h3>
+              <p className="text-muted-foreground text-sm mb-4">
+                Support for inspection and refurbishment of H-4 connectors, hydraulic circuits, preload mechanisms,
+                and associated integrity-critical components.
+              </p>
+              <div className="flex items-center gap-2">
+                {["H-4", "Hydraulics", "Preload"].map((item) => (
+                  <span key={item} className="px-2 py-1 text-xs bg-secondary text-muted-foreground">{item}</span>
+                ))}
+              </div>
+            </motion.div>
+
+            <motion.div
+              variants={itemVariants}
+              className="group relative p-6 border border-border bg-card/80 backdrop-blur-sm hover:border-bexoni/40 hover:scale-[1.01] transition-all duration-300"
+            >
+              <div className="p-2 bg-bexoni/10 w-fit mb-4">
+                <Phone className="w-5 h-5 text-bexoni" strokeWidth={1.5} />
+              </div>
+              <h3 className="text-lg font-semibold text-foreground mb-2">Seal & Module Support</h3>
+              <p className="text-muted-foreground text-sm mb-4">
+                Replacement of seal assemblies and support for recoverable modules that contain valves and sensors,
+                helping reduce full retrieval requirements.
+              </p>
+              <div className="flex items-center gap-2 text-emerald-500 text-sm">
+                <span className="relative flex h-3 w-3">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+                </span>
+                <span className="font-mono">24/7</span>
+                <span className="text-muted-foreground/60">critical operations support</span>
               </div>
             </motion.div>
           </motion.div>
         </section>
 
-        {/* Project Showcase Cards */}
         <section className="space-y-8">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-            Projects & Capabilities
+            Applications & Capabilities
           </h2>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                title: "Offshore Platform Overhaul",
-                description: "Complete wellhead system replacement and integrity restoration for a 12-well offshore platform in the North Sea.",
+                title: "Standard Land Well Programs",
+                description: "Flexible wellhead solutions configured for standard land drilling campaigns and adaptable casing programs.",
+                tag: "Onshore",
+              },
+              {
+                title: "Offshore Development Projects",
+                description: "Installation planning and wellhead execution support tailored for controlled offshore project delivery.",
                 tag: "Offshore",
               },
               {
-                title: "Emergency Valve Replacement",
-                description: "Critical gate valve failure resolved within 6 hours of initial call, preventing estimated €2M in production losses.",
-                tag: "Emergency",
+                title: "HPHT Wellhead Integrity",
+                description: "Advanced materials and metal-to-metal sealing concepts suited to higher pressure and temperature demands.",
+                tag: "HPHT",
               },
               {
-                title: "Multi-Well Pressure Testing",
-                description: "Systematic pressure testing program across 40+ wells, identifying and resolving 8 integrity concerns before failure.",
-                tag: "Testing",
-              },
-              {
-                title: "Brownfield Wellhead Upgrade",
-                description: "Modernisation of legacy wellhead equipment across an ageing onshore field, extending asset life by 15+ years.",
-                tag: "Upgrade",
-              },
-              {
-                title: "Subsea Wellhead Support",
-                description: "Specialist tooling and engineering support for subsea wellhead installation and commissioning campaigns.",
+                title: "Deepwater & Subsea Installations",
+                description: "Support for subsea wellhead systems, tubing head spools, tieback connectors, and deepwater execution needs.",
                 tag: "Subsea",
               },
               {
-                title: "Decommissioning Services",
-                description: "Safe and compliant wellhead removal and site restoration for end-of-life assets across multiple facilities.",
-                tag: "Decommission",
+                title: "Workover & Intervention Campaigns",
+                description: "Maintenance-led support for re-entry, component change-out, seal replacement, and integrity restoration.",
+                tag: "Workover",
+              },
+              {
+                title: "Recoverable Module Operations",
+                description: "Module retrieval and service support for annulus monitoring and valve/sensor access without full system recovery.",
+                tag: "Monitoring",
               },
             ].map((project) => (
               <div
@@ -312,7 +307,7 @@ export default function About() {
                 className="border border-border bg-card/80 backdrop-blur-sm overflow-hidden hover:border-bexoni/40 transition-colors group"
               >
                 <div className="aspect-video bg-secondary/50 flex items-center justify-center">
-                  <span className="text-muted-foreground/40 text-sm">Image placeholder</span>
+                  <span className="text-muted-foreground/40 text-sm">Capability highlight</span>
                 </div>
                 <div className="p-6 space-y-3">
                   <div className="flex items-center gap-2">
@@ -326,7 +321,6 @@ export default function About() {
           </div>
         </section>
 
-        {/* Why Choose Fusion */}
         <section className="space-y-8">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground">
             Why Choose <span className="text-bexoni">Fusion</span>
@@ -334,20 +328,20 @@ export default function About() {
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl">
             {[
               {
-                title: "Single-Source Partner",
-                description: "One point of contact for maintenance, repair, testing, and equipment — no more juggling multiple contractors.",
+                title: "Metallurgy & Sealing Advantage",
+                description: "Advanced materials and metal-to-metal sealing concepts help support pressure integrity in demanding well environments.",
               },
               {
-                title: "Rapid Mobilisation",
-                description: "Our teams can be on-site within hours, not days. We maintain strategic stock and pre-positioned resources.",
+                title: "Deepwater Engineering Focus",
+                description: "Connector and subsea system support is framed around the realities of offshore loading, installation control, and deepwater execution.",
               },
               {
-                title: "Deep Technical Expertise",
-                description: "Our engineers have decades of hands-on experience across every major wellhead platform and operating environment.",
+                title: "System Versatility",
+                description: "Interchangeable components and broad configuration flexibility support projects ranging from standard land wells to complex subsea completions.",
               },
               {
-                title: "Safety-First Culture",
-                description: "Zero-incident target across all operations. Our safety record speaks for itself — and our clients' audit results confirm it.",
+                title: "Installation Assurance",
+                description: "Positive indication tools and confirmation-driven execution help reduce guesswork during landing, locking, and critical running operations.",
               },
             ].map((item) => (
               <div key={item.title} className="border border-border p-6 bg-card/80 backdrop-blur-sm space-y-2">

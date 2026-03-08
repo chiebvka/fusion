@@ -34,21 +34,21 @@ export function CTASection() {
       <div className="relative max-w-4xl mx-auto">
         <div className="fade-in-element opacity-0 translate-y-8 transition-all duration-1000 ease-out text-center p-8 md:p-10 rounded-3xl border border-border bg-card/80 backdrop-blur-md">
           <h3 className="text-2xl md:text-3xl lg:text-4xl font-light text-foreground mb-6 text-balance leading-tight">
-            Ready to protect your{" "}
+            Ready to elevate your{" "}
             <span className="font-medium italic text-muted-foreground">
-              production uptime
+              wellhead integrity
             </span>
             ?
           </h3>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-            Join operators across the industry who trust Fusion for reliable wellhead maintenance, rapid emergency
-            response, and complete integrity management.
+            Speak with Fusion about VETCO GRAY equipment supply, installation support, maintenance planning, or subsea
+            wellhead requirements for your next project.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
             <Link to="/contact">
               <button className="group inline-flex items-center gap-3 px-8 py-4 md:px-12 md:py-6 bg-bexoni text-white font-semibold text-base md:text-lg hover:bg-bexoni/90 transition-all duration-300 hover:scale-105 shadow-2xl">
-                Get a Free Consultation
+                Contact Our Wellhead Team
                 <ArrowRight className="w-5 h-5 md:w-6 md:h-6 group-hover:translate-x-1 transition-transform duration-200" />
               </button>
             </Link>

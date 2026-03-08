@@ -1,34 +1,34 @@
 export default function Faqs() {
   const faqs = [
     {
-      question: "Lorem ipsum dolor sit amet?",
+      question: "What wellhead solutions does Fusion provide?",
       answer:
-        "Consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "Fusion supports wellhead equipment supply, installation and running services, maintenance and workover support, connector reconditioning, seal replacement, and subsea project requirements.",
     },
     {
-      question: "Praesent sapien massa convallis?",
+      question: "Does Fusion work with VETCO GRAY wellhead systems?",
       answer:
-        "Donec sollicitudin molestie malesuada. Nulla quis lorem ut libero malesuada feugiat. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.",
+        "Yes. Fusion is positioned around VETCO GRAY wellhead solutions, helping clients align recognised wellhead technology with local project support and operational accountability.",
     },
     {
-      question: "Curabitur non nulla sit amet nisl?",
+      question: "Can Fusion support installation and running operations?",
       answer:
-        "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae. Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.",
+        "Yes. Fusion supports installation activity with running tools, landing confirmation, locking support, and execution planning for controlled wellhead deployment.",
     },
     {
-      question: "Nulla porttitor accumsan tincidunt?",
+      question: "Do you handle subsea and deepwater wellhead requirements?",
       answer:
-        "Curabitur aliquet quam id dui posuere blandit. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Proin eget tortor risus. Vivamus suscipit tortor eget felis porttitor volutpat.",
+        "Yes. Fusion supports subsea wellhead systems, tubing head spool requirements, deepwater installation planning, and projects that require higher-pressure subsea capability.",
     },
     {
-      question: "Vestibulum ac diam sit amet quam?",
+      question: "Can Fusion support maintenance, seals, and connector service?",
       answer:
-        "Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.",
+        "Yes. Support areas include maintenance and workover activity, connector reconditioning, seal assembly replacement, and recoverable module-related service planning.",
     },
     {
-      question: "Mauris blandit aliquet elit?",
+      question: "Is critical operations support available?",
       answer:
-        "Proin eget tortor risus. Nulla porttitor accumsan tincidunt. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Sed porttitor lectus nibh.",
+        "Yes. Fusion provides 24/7 support availability for critical operations and urgent wellhead-related project needs.",
     },
   ]
 
@@ -40,8 +40,8 @@ export default function Faqs() {
             Frequently Asked Questions
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Find
-            answers to common questions below.
+            Find answers to common questions about Fusion&apos;s wellhead supply, installation, maintenance, and subsea
+            support capabilities.
           </p>
         </section>
 

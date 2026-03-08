@@ -27,16 +27,15 @@ export default function Contact() {
       <div className="md:w-[85%] w-full space-y-16 py-12">
         <section className="space-y-4">
           <h1 className="text-5xl font-bold tracking-tight text-bexoni">
-            Get in Touch
+            Contact Fusion Limited
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl">
-            Have a question or want to learn more about how Fusion can support your operations? Fill out the form below
-            and someone from our team will get back to you shortly.
+            Speak with our wellhead solutions team about VETCO GRAY equipment supply, installation support,
+            maintenance planning, workover needs, or subsea project requirements.
           </p>
         </section>
 
         <div className="grid lg:grid-cols-5 gap-12 lg:gap-16">
-          {/* Contact Form */}
           <div className="lg:col-span-3">
             {submitted ? (
               <Card className="p-8 md:p-12 bg-card/80 backdrop-blur-sm border-border text-center">
@@ -45,7 +44,8 @@ export default function Contact() {
                 </div>
                 <h2 className="text-2xl font-semibold text-foreground mb-3">Message Sent</h2>
                 <p className="text-muted-foreground mb-8">
-                  Thank you for reaching out. A member of our team will be in touch within 24 hours.
+                  Thank you for contacting Fusion Limited. A member of the wellhead solutions team will review your
+                  request and respond as soon as possible.
                 </p>
                 <Button onClick={() => setSubmitted(false)} variant="outline">
                   Send Another Message
@@ -99,11 +99,12 @@ export default function Contact() {
                         <SelectValue placeholder="Select a topic" />
                       </SelectTrigger>
                       <SelectContent className="bg-card border-border">
+                        <SelectItem value="supply">Equipment Supply</SelectItem>
+                        <SelectItem value="installation">Installation & Running Services</SelectItem>
+                        <SelectItem value="maintenance">Maintenance & Workover</SelectItem>
+                        <SelectItem value="subsea">Subsea Support</SelectItem>
+                        <SelectItem value="emergency">Critical Operations Support</SelectItem>
                         <SelectItem value="general">General Inquiry</SelectItem>
-                        <SelectItem value="wellhead">Wellhead Services</SelectItem>
-                        <SelectItem value="emergency">Emergency Support</SelectItem>
-                        <SelectItem value="partnership">Partnership</SelectItem>
-                        <SelectItem value="other">Other</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
@@ -119,7 +120,7 @@ export default function Contact() {
                       rows={6}
                       value={formData.message}
                       onChange={handleChange}
-                      placeholder="Tell us how we can help..."
+                      placeholder="Tell us about your wellhead requirement, project environment, or support need..."
                       className="w-full px-4 py-3 bg-secondary/50 border border-border text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-2 focus:ring-bexoni/50 transition-colors resize-none"
                     />
                   </div>
@@ -133,7 +134,6 @@ export default function Contact() {
             )}
           </div>
 
-          {/* Contact Info Sidebar */}
           <div className="lg:col-span-2 space-y-8">
             <div>
               <h2 className="text-xl font-semibold text-foreground mb-6">Contact Information</h2>
@@ -144,8 +144,8 @@ export default function Contact() {
                   </div>
                   <div>
                     <p className="text-sm font-medium text-foreground">Email</p>
-                    <a href="mailto:hello@fusionlimited.com" className="text-muted-foreground hover:text-foreground transition-colors">
-                      hello@fusionlimited.com
+                    <a href="mailto:info@thefusionlimited.com" className="text-muted-foreground hover:text-foreground transition-colors">
+                      info@thefusionlimited.com
                     </a>
                   </div>
                 </div>
@@ -156,8 +156,8 @@ export default function Contact() {
                   </div>
                   <div>
                     <p className="text-sm font-medium text-foreground">Phone</p>
-                    <a href="tel:+353000000000" className="text-muted-foreground hover:text-foreground transition-colors">
-                      +353 (0) 00 000 0000
+                    <a href="tel:+2348028271207" className="text-muted-foreground hover:text-foreground transition-colors">
+                      +234 (0) 802 827 1207
                     </a>
                   </div>
                 </div>
@@ -169,7 +169,7 @@ export default function Contact() {
                   <div>
                     <p className="text-sm font-medium text-foreground">Address</p>
                     <p className="text-muted-foreground">
-                      Dublin, Ireland
+                      7A Chief Atako Estate, Old GRA, Port Harcourt.
                     </p>
                   </div>
                 </div>
@@ -179,24 +179,25 @@ export default function Contact() {
             <div className="border-t border-border pt-8">
               <h3 className="text-sm font-semibold text-foreground mb-3">Response Time</h3>
               <p className="text-sm text-muted-foreground">
-                We typically respond within 24 hours during business days. For urgent matters, please call us directly.
+                General project enquiries are reviewed by our team as quickly as possible. For urgent operational
+                matters, please contact us directly by phone.
               </p>
             </div>
 
             <div className="border-t border-border pt-8">
-              <h3 className="text-sm font-semibold text-foreground mb-3">Business Hours</h3>
+              <h3 className="text-sm font-semibold text-foreground mb-3">Support Availability</h3>
               <div className="space-y-2 text-sm text-muted-foreground">
-                <div className="flex justify-between">
-                  <span>Monday - Friday</span>
-                  <span className="text-foreground">9:00 AM - 6:00 PM</span>
+                <div className="flex justify-between gap-4">
+                  <span>General Enquiries</span>
+                  <span className="text-foreground text-right">Email or phone</span>
                 </div>
-                <div className="flex justify-between">
-                  <span>Saturday</span>
-                  <span className="text-foreground">10:00 AM - 2:00 PM</span>
+                <div className="flex justify-between gap-4">
+                  <span>Project Discussions</span>
+                  <span className="text-foreground text-right">Scheduled with the team</span>
                 </div>
-                <div className="flex justify-between">
-                  <span>Sunday</span>
-                  <span className="text-foreground">Closed</span>
+                <div className="flex justify-between gap-4">
+                  <span>Critical Operations</span>
+                  <span className="text-foreground text-right">24/7 support available</span>
                 </div>
               </div>
             </div>

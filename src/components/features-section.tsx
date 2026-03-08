@@ -1,13 +1,13 @@
 import { useEffect, useRef, useState } from "react"
 
 const AnimatedWellStatusDemo = ({ isActive }: { isActive: boolean }) => {
-  const [wells, setWells] = useState([
-    { id: "W-01", status: "operational", visible: false },
-    { id: "W-02", status: "operational", visible: false },
-    { id: "W-03", status: "flagged", visible: false },
-    { id: "W-04", status: "operational", visible: false },
-    { id: "W-05", status: "repair", visible: false },
-    { id: "W-06", status: "operational", visible: false },
+  const [items, setItems] = useState([
+    { id: "MS-700", status: "available", visible: false },
+    { id: "MS-1", status: "available", visible: false },
+    { id: "H-4", status: "configured", visible: false },
+    { id: "HD", status: "available", visible: false },
+    { id: "SHD", status: "critical", visible: false },
+    { id: "Modules", status: "available", visible: false },
   ])
   const [cycleCount, setCycleCount] = useState(0)
 
@@ -15,20 +15,20 @@ const AnimatedWellStatusDemo = ({ isActive }: { isActive: boolean }) => {
     if (!isActive) return
 
     const scenarios = [
-      ["operational", "operational", "flagged", "operational", "repair", "operational"],
-      ["operational", "flagged", "operational", "operational", "operational", "flagged"],
-      ["repair", "operational", "operational", "flagged", "operational", "operational"],
+      ["available", "available", "configured", "available", "critical", "available"],
+      ["available", "configured", "available", "available", "available", "configured"],
+      ["critical", "available", "available", "configured", "available", "available"],
     ]
 
     const currentScenario = scenarios[cycleCount % scenarios.length]
 
     const timer = setTimeout(() => {
-      setWells((prev) => prev.map((w) => ({ ...w, visible: false })))
+      setItems((prev) => prev.map((item) => ({ ...item, visible: false })))
 
       currentScenario.forEach((status, i) => {
         setTimeout(() => {
-          setWells((prev) =>
-            prev.map((w, idx) => (idx === i ? { ...w, status, visible: true } : w)),
+          setItems((prev) =>
+            prev.map((item, idx) => (idx === i ? { ...item, status, visible: true } : item)),
           )
         }, 200 + i * 150)
       })
@@ -39,32 +39,32 @@ const AnimatedWellStatusDemo = ({ isActive }: { isActive: boolean }) => {
     return () => clearTimeout(timer)
   }, [isActive, cycleCount])
 
-  const statusColor = (s: string) =>
-    s === "operational" ? "bg-green-500" : s === "flagged" ? "bg-yellow-500" : "bg-red-500"
+  const statusColor = (status: string) =>
+    status === "available" ? "bg-green-500" : status === "configured" ? "bg-yellow-500" : "bg-red-500"
 
   return (
     <div className="bg-muted rounded-lg p-4 h-32 overflow-hidden relative">
       <div className="absolute top-2 right-2 flex items-center gap-1">
         <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-        <span className="text-xs text-muted-foreground font-medium">Live</span>
+        <span className="text-xs text-muted-foreground font-medium">Spec Sheet</span>
       </div>
       <div className="grid grid-cols-3 gap-2">
-        {wells.map((well, i) => (
+        {items.map((item, i) => (
           <div
             key={i}
             className={`flex items-center gap-2 p-2 rounded transition-all duration-500 ${
-              well.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
+              item.visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
             } bg-card`}
           >
-            <div className={`w-2 h-2 rounded-full ${statusColor(well.status)}`} />
-            <span className="text-xs text-card-foreground">{well.id}</span>
+            <div className={`w-2 h-2 rounded-full ${statusColor(item.status)}`} />
+            <span className="text-xs text-card-foreground">{item.id}</span>
           </div>
         ))}
       </div>
       <div className="mt-2 flex gap-3 text-xs text-muted-foreground">
-        <span className="flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-green-500"></span> Online</span>
-        <span className="flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-yellow-500"></span> Flagged</span>
-        <span className="flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-red-500"></span> Repair</span>
+        <span className="flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-green-500"></span> Available</span>
+        <span className="flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-yellow-500"></span> Configured</span>
+        <span className="flex items-center gap-1"><span className="w-1.5 h-1.5 rounded-full bg-red-500"></span> Critical</span>
       </div>
     </div>
   )
@@ -72,7 +72,7 @@ const AnimatedWellStatusDemo = ({ isActive }: { isActive: boolean }) => {
 
 const AnimatedPressureDemo = ({ isActive }: { isActive: boolean }) => {
   const [pressure, setPressure] = useState(0)
-  const [target] = useState(3200)
+  const [target] = useState(15000)
   const [passed, setPassed] = useState(false)
 
   useEffect(() => {
@@ -80,7 +80,7 @@ const AnimatedPressureDemo = ({ isActive }: { isActive: boolean }) => {
 
     let current = 0
     const interval = setInterval(() => {
-      current += 80
+      current += 300
       if (current >= target) {
         current = target
         clearInterval(interval)
@@ -95,7 +95,7 @@ const AnimatedPressureDemo = ({ isActive }: { isActive: boolean }) => {
   return (
     <div className="bg-muted rounded-lg p-4 h-32 flex flex-col justify-between relative">
       <div className="flex justify-between items-center">
-        <span className="text-xs text-muted-foreground font-medium">Pressure Test</span>
+        <span className="text-xs text-muted-foreground font-medium">Subsea Rating</span>
         {passed && <span className="text-xs text-green-500 font-medium">PASS</span>}
       </div>
       <div className="flex-1 flex items-center">
@@ -154,7 +154,7 @@ const AnimatedMaintenanceDemo = ({ isActive }: { isActive: boolean }) => {
         ))}
       </div>
       {confirmed && (
-        <div className="mt-2 text-xs text-green-600 font-medium animate-fade-in">&#10003; Maintenance scheduled for the 15th</div>
+        <div className="mt-2 text-xs text-green-600 font-medium animate-fade-in">&#10003; Running programme locked for the 15th</div>
       )}
     </div>
   )
@@ -162,9 +162,9 @@ const AnimatedMaintenanceDemo = ({ isActive }: { isActive: boolean }) => {
 
 const AnimatedWorkOrderDemo = ({ isActive }: { isActive: boolean }) => {
   const [orders, setOrders] = useState([
-    { ref: "WO-4821", task: "Valve replacement", status: "pending" },
-    { ref: "WO-4822", task: "Integrity inspection", status: "pending" },
-    { ref: "WO-4823", task: "Spool repair", status: "pending" },
+    { ref: "RS-4821", task: "Landing confirmation", status: "pending" },
+    { ref: "RS-4822", task: "Connector preload", status: "pending" },
+    { ref: "RS-4823", task: "Seal change-out", status: "pending" },
   ])
 
   useEffect(() => {
@@ -212,9 +212,9 @@ const AnimatedWorkOrderDemo = ({ isActive }: { isActive: boolean }) => {
 
 const AnimatedInventoryDemo = ({ isActive }: { isActive: boolean }) => {
   const [parts, setParts] = useState([
-    { name: "Gate Valves", stock: 0, max: 85 },
+    { name: "H-4 Connectors", stock: 0, max: 85 },
     { name: "Tubing Hangers", stock: 0, max: 62 },
-    { name: "Seal Rings", stock: 0, max: 94 },
+    { name: "Seal Assemblies", stock: 0, max: 94 },
   ])
 
   useEffect(() => {
@@ -262,20 +262,20 @@ const AnimatedInventoryDemo = ({ isActive }: { isActive: boolean }) => {
 }
 
 const AnimatedComplianceDemo = ({ isActive }: { isActive: boolean }) => {
-  const [certs, setCerts] = useState([
-    { name: "ISO 9001", verified: false },
-    { name: "API Q1", verified: false },
-    { name: "OSHA", verified: false },
-    { name: "NORSOK", verified: false },
+  const [checks, setChecks] = useState([
+    { name: "Landing", verified: false },
+    { name: "Locking", verified: false },
+    { name: "Pressure", verified: false },
+    { name: "Orientation", verified: false },
   ])
 
   useEffect(() => {
     if (!isActive) return
 
-    certs.forEach((_, index) => {
+    checks.forEach((_, index) => {
       setTimeout(
         () => {
-          setCerts((prev) => prev.map((cert, i) => (i === index ? { ...cert, verified: true } : cert)))
+          setChecks((prev) => prev.map((check, i) => (i === index ? { ...check, verified: true } : check)))
         },
         500 + index * 400,
       )
@@ -285,24 +285,24 @@ const AnimatedComplianceDemo = ({ isActive }: { isActive: boolean }) => {
   return (
     <div className="bg-muted rounded-lg p-4 h-32">
       <div className="grid grid-cols-2 gap-2">
-        {certs.map((cert, i) => (
+        {checks.map((check, i) => (
           <div
             key={i}
             className={`flex items-center gap-2 p-2 rounded transition-all duration-500 ${
-              cert.verified ? "bg-green-500/10" : "bg-card"
+              check.verified ? "bg-green-500/10" : "bg-card"
             }`}
           >
             <div
               className={`w-2 h-2 rounded-full transition-colors duration-500 ${
-                cert.verified ? "bg-green-500" : "bg-muted-foreground/30"
+                check.verified ? "bg-green-500" : "bg-muted-foreground/30"
               }`}
             />
-            <span className="text-xs text-card-foreground">{cert.name}</span>
+            <span className="text-xs text-card-foreground">{check.name}</span>
           </div>
         ))}
       </div>
       <div className="mt-2 text-center">
-        <div className="text-xs text-muted-foreground">{certs.filter((c) => c.verified).length}/4 verified</div>
+        <div className="text-xs text-muted-foreground">{checks.filter((check) => check.verified).length}/4 confirmed</div>
       </div>
     </div>
   )
@@ -310,45 +310,45 @@ const AnimatedComplianceDemo = ({ isActive }: { isActive: boolean }) => {
 
 const features = [
   {
-    title: "Well Status Monitoring",
+    title: "VETCO GRAY Equipment Supply",
     description:
-      "Real-time visibility across your entire well portfolio. Track operational status, flag emerging issues, and prioritise interventions before they become costly shutdowns.",
+      "Specification-led supply of VETCO GRAY equipment, including MS-700 housings, casing hangers, seal systems, and H-4 family connectors matched to project requirements.",
     demo: AnimatedWellStatusDemo,
     size: "large",
   },
   {
-    title: "Pressure Testing & Integrity",
+    title: "Installation Assurance",
     description:
-      "Hydrostatic and pneumatic testing to verify wellhead integrity. Comprehensive reporting that keeps you compliant and your assets safe.",
+      "Positive indication systems and running tools that confirm correct landing and locking, helping reduce uncertainty during critical installation stages.",
+    demo: AnimatedComplianceDemo,
+    size: "medium",
+  },
+  {
+    title: "Subsea Pressure Integrity",
+    description:
+      "Subsea wellhead systems and connectors engineered for demanding offshore programs, with pressure ratings up to 15,000 psi and beyond.",
     demo: AnimatedPressureDemo,
     size: "medium",
   },
   {
-    title: "Maintenance Scheduling",
+    title: "Installation & Running Services",
     description:
-      "Preventive maintenance programs tailored to your asset base. Automated scheduling ensures nothing falls through the cracks.",
-    demo: AnimatedMaintenanceDemo,
-    size: "medium",
-  },
-  {
-    title: "Work Order Management",
-    description:
-      "End-to-end tracking from job creation to completion. Every valve replacement, inspection, and repair documented and auditable.",
+      "Field teams support single-trip running tools, orientation, lockdown, and efficient execution across offshore, onshore, and subsea campaigns.",
     demo: AnimatedWorkOrderDemo,
     size: "large",
   },
   {
-    title: "Parts & Equipment Supply",
+    title: "Maintenance & Workover",
     description:
-      "Pre-positioned critical spares and rapid procurement for all major wellhead manufacturers. No more waiting days for a part to arrive.",
-    demo: AnimatedInventoryDemo,
+      "Planned maintenance and intervention support for producing assets, including service preparation, equipment readiness, and lifecycle wellhead attention.",
+    demo: AnimatedMaintenanceDemo,
     size: "medium",
   },
   {
-    title: "Compliance & Certification",
+    title: "Connector & Seal Support",
     description:
-      "Full regulatory compliance management across ISO, API, OSHA, and NORSOK standards. Audit-ready documentation at all times.",
-    demo: AnimatedComplianceDemo,
+      "Inspection, refurbishment, and replacement support for connectors, hydraulic circuits, preload mechanisms, and critical sealing components.",
+    demo: AnimatedInventoryDemo,
     size: "medium",
   },
 ]
@@ -421,17 +421,17 @@ export function FeaturesSection() {
               <svg className="w-4 h-4 mr-2 text-muted-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
               </svg>
-              24/7 Operations Support — Zero Compromise on Safety
+              Authorized VETCO GRAY Partner Support
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground text-balance mb-4 sm:mb-6">
-              Your Wellheads{" "}
+              Wellhead Support{" "}
               <span className="bg-linear-to-r from-muted-foreground to-muted-foreground/60 bg-clip-text text-transparent">
-                Never Stop
+                Across the Full Lifecycle
               </span>
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto font-light leading-relaxed">
-              See how Fusion keeps your operations running around the clock with real-time monitoring, preventive
-              maintenance, and rapid-response field engineering.
+              Fusion combines local project delivery with VETCO GRAY technology across equipment supply, installation,
+              maintenance, workover support, and subsea execution.
             </p>
           </div>
 

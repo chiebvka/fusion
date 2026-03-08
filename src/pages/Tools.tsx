@@ -1,34 +1,34 @@
 export default function Tools() {
   const tools = [
     {
-      name: "Lorem Calculator",
+      name: "Wellhead Equipment Supply",
       description:
-        "Consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "Specification-led support for VETCO GRAY wellhead housings, casing hangers, sealing systems, and connector packages aligned to project requirements.",
     },
     {
-      name: "Ipsum Generator",
+      name: "Installation & Running Services",
       description:
-        "Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Donec sollicitudin molestie malesuada.",
+        "Field execution support around running tools, landing confirmation, locking, orientation control, and safer installation planning.",
     },
     {
-      name: "Dolor Analyzer",
+      name: "Maintenance & Workover Support",
       description:
-        "Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Vestibulum ante ipsum primis.",
+        "Lifecycle support for producing assets, including intervention planning, integrity-focused servicing, and wellhead maintenance readiness.",
     },
     {
-      name: "Amet Converter",
+      name: "Connector Reconditioning",
       description:
-        "Nulla porttitor accumsan tincidunt. Curabitur aliquet quam id dui posuere blandit. Mauris blandit aliquet.",
+        "Support for inspection and refurbishment of H-4 connectors, hydraulic circuits, preload mechanisms, and related wellhead hardware.",
     },
     {
-      name: "Sit Validator",
+      name: "Seal Assembly Replacement",
       description:
-        "Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in elementum.",
+        "Service support for metal-to-metal and elastomeric sealing components where pressure integrity and dependable isolation are critical.",
     },
     {
-      name: "Elit Optimizer",
+      name: "Subsea Project Support",
       description:
-        "Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Nulla quis lorem ut libero.",
+        "Deepwater and subsea wellhead capability covering high-capacity systems, tubing head spools, and recoverable module planning.",
     },
   ]
 
@@ -36,10 +36,10 @@ export default function Tools() {
     <div className="flex justify-center p-4 md:p-6">
       <div className="md:w-[85%] w-full space-y-16 py-12">
         <section className="space-y-4">
-          <h1 className="text-5xl font-bold tracking-tight text-bexoni">Tools</h1>
+          <h1 className="text-5xl font-bold tracking-tight text-bexoni">Service Offerings</h1>
           <p className="text-xl text-muted-foreground max-w-2xl">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Free tools
-            to help you get things done.
+            Explore the support areas Fusion aligns around, from wellhead equipment supply through installation,
+            maintenance, workover activity, and subsea execution.
           </p>
         </section>
 
