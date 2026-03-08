@@ -6,7 +6,7 @@ import { TestimonialsSection } from "@/components/testimonials-section"
 
 export default function Home() {
   return (
-    <div className="-mt-20 md:-mt-24">
+    <div className="-mt-26 md:-mt-30">
       <HeroSection />
       <FeaturesSection />
       <TestimonialsSection />
