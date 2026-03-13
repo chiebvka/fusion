@@ -3,6 +3,7 @@ import { Link } from 'react-router'
 import { Home, Menu } from 'lucide-react'
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 import { ThemeToggle } from './theme-toggle'
+import { Logo } from './logo'
 
 
 export default function Header() {
@@ -15,7 +16,7 @@ export default function Header() {
       </div>
       <nav className="flex fixed top-0 left-0 right-0 z-40 justify-center p-4 md:p-6 pt-10 md:pt-12 text-foreground">
         <div className="md:w-[85%] w-full flex justify-between items-center bg-background/80 backdrop-blur-md border px-6 py-2">
-          <img src={''} alt="Logo" height={40} width={40} />
+          <Logo height={64} width={64} />
 
           <div className="hidden md:flex items-center bg-secondary/80 dark:bg-white/10 backdrop-blur-sm px-1 py-1">
             <Link
@@ -31,11 +32,11 @@ export default function Header() {
             <Link to="/faqs" className="nav-item px-4 py-2 hover:text-primary transition-colors hover:bounce-x">
               FAQs
             </Link>
-            <Link to="/blogs" className="nav-item px-4 py-2 hover:text-primary transition-colors hover:bounce-x">
+            {/* <Link to="/blogs" className="nav-item px-4 py-2 hover:text-primary transition-colors hover:bounce-x">
               Blog
-            </Link>
-            <Link to="/tools" className="nav-item px-4 py-2 hover:text-primary transition-colors hover:bounce-x">
-              Tools
+            </Link> */}
+            <Link to="/services" className="nav-item px-4 py-2 hover:text-primary transition-colors hover:bounce-x">
+              Services
             </Link>
             <Link to="/story" className="nav-item px-4 py-2 hover:text-primary transition-colors hover:bounce-x">
               Story
@@ -84,8 +85,8 @@ export default function Header() {
                       <MobileNavLink to="/about" label="About" onClick={() => setIsSheetOpen(false)} />
                       <MobileNavLink to="/story" label="Story" onClick={() => setIsSheetOpen(false)} />
                       <MobileNavLink to="/faqs" label="FAQs" onClick={() => setIsSheetOpen(false)} />
-                      <MobileNavLink to="/blogs" label="Blog" onClick={() => setIsSheetOpen(false)} />
-                      <MobileNavLink to="/tools" label="Tools" onClick={() => setIsSheetOpen(false)} />
+                      {/* <MobileNavLink to="/blogs" label="Blog" onClick={() => setIsSheetOpen(false)} /> */}
+                      <MobileNavLink to="/services" label="Services" onClick={() => setIsSheetOpen(false)} />
                       <MobileNavLink to="/contact" label="Contact" onClick={() => setIsSheetOpen(false)} />
                     </nav>
                   </div>

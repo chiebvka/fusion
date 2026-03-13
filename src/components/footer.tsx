@@ -2,7 +2,7 @@ import type React from "react"
 import type { ComponentProps, ReactNode } from "react"
 import { Link } from "react-router"
 import { motion, useReducedMotion } from "framer-motion"
-import { FacebookIcon, InstagramIcon, LinkedinIcon, YoutubeIcon } from "lucide-react"
+import { Logo } from "./logo"
 
 interface FooterLink {
   title: string
@@ -17,39 +17,41 @@ interface FooterSection {
 
 const footerLinks: FooterSection[] = [
   {
-    label: "Product",
-    links: [
-      { title: "Features", href: "/features" },
-      { title: "AI Team", href: "/ai-team" },
-      { title: "ROI Calculator", href: "/roi-calculator" },
-      { title: "Integration", href: "/integration" },
-    ],
-  },
-  {
     label: "Company",
     links: [
-      { title: "About Us", href: "/about" },
+      { title: "About Fusion", href: "/about" },
+      { title: "Service Offerings", href: "/services" },
       { title: "Contact", href: "/contact" },
       { title: "Privacy Policy", href: "/privacy" },
-      { title: "Terms of Service", href: "/terms" },
+      { title: "Terms & Conditions", href: "/terms" },
     ],
   },
   {
-    label: "Resources",
+    label: "Wellhead Services",
     links: [
-      { title: "Blog", href: "/blog" },
-      { title: "Case Studies", href: "/case-studies" },
-      { title: "Documentation", href: "/docs" },
-      { title: "Support", href: "/support" },
+      { title: "Wellhead Equipment Supply", href: "/services#equipment-supply" },
+      { title: "Installation & Running Services", href: "/services#installation-running" },
+      { title: "Maintenance & Workover", href: "/services#maintenance-workover" },
+      { title: "Connector Reconditioning", href: "/services#connector-reconditioning" },
+      { title: "Subsea & Deepwater Solutions", href: "/services#subsea" },
     ],
   },
   {
-    label: "Social Links",
+    label: "Applications & Capabilities",
     links: [
-      { title: "Facebook", href: "#", icon: FacebookIcon },
-      { title: "Instagram", href: "#", icon: InstagramIcon },
-      { title: "Youtube", href: "#", icon: YoutubeIcon },
-      { title: "LinkedIn", href: "#", icon: LinkedinIcon },
+      { title: "HPHT Wellhead Integrity", href: "/about#hpht" },
+      { title: "Deepwater & Subsea Installations", href: "/about#subsea" },
+      { title: "Workover & Intervention Campaigns", href: "/about#workover" },
+      { title: "Recoverable Module Operations", href: "/about#modules" },
+    ],
+  },
+  {
+    label: "Contact & Support",
+    links: [
+      { title: "Email: info@thefusionlimited.com", href: "mailto:info@thefusionlimited.com" },
+      { title: "Phone: +234 802 827 1207", href: "tel:+2348028271207" },
+      { title: "Office: Port Harcourt, Nigeria", href: "/contact" },
+      { title: "24/7 Critical Operations Support", href: "/contact#support" },
     ],
   },
 ]
@@ -62,7 +64,10 @@ export function Footer() {
 
         <div className="grid w-full gap-8 xl:grid-cols-3 xl:gap-8">
             <AnimatedContainer className="space-y-4">
-            <img src={''} alt="Fusion Logo" width={64} height={64} className="size-16" />
+            <Logo height={80} width={80} />
+            <p className="text-muted-foreground text-sm max-w-sm">
+                Specialist wellhead solutions partner and authorized provider of VETCO GRAY wellhead systems – securing your well&apos;s future, from spud to completion.
+            </p>
             <div className="text-muted-foreground mt-8 text-sm md:mt-0 md:block hidden">
                 <p>© {new Date().getFullYear()} Fusion. All rights reserved.</p>
             </div>
@@ -75,10 +80,10 @@ export function Footer() {
                     <h3 className="text-xs">{section.label}</h3>
                     <ul className="text-muted-foreground mt-4 space-y-2 text-sm">
                     {section.links.map((link) => (
-                        <li key={link.title}>
+                        <li key={link.title} className="text-xs items-center transition-all duration-300 hover:text-bexoni cursor-pointer ">
                         <Link
                             to={link.href}
-                            className="hover:text-foreground inline-flex items-center transition-all duration-300"
+                            className="hover:text-bexoni cursor-pointer hover:underline inline-flex items-center"
                         >
                             {link.icon && <link.icon className="me-1 size-4" />}
                             {link.title}
@@ -94,11 +99,11 @@ export function Footer() {
 
         <div className="md:hidden mt-8 text-center space-y-2">
             <p className="text-muted-foreground text-sm">© {new Date().getFullYear()} Fusion. All rights reserved.</p>
-            <p className="text-muted-foreground text-xs">Web Development by Humexa</p>
+            <p className="text-muted-foreground text-xs">Developed by <a href="https://www.bexoni.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-foreground transition-colors">Bexoni</a></p>
         </div>
 
         <div className="hidden md:block mt-8 pt-6 border-t border-foreground/10 w-full">
-            <p className="text-muted-foreground text-xs text-center">Web Development by Humexa</p>
+            <p className="text-muted-foreground text-xs text-center">Developed  by <a href="https://www.bexoni.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-foreground transition-colors">Bexoni</a></p>
         </div>
         </footer>
     </div>

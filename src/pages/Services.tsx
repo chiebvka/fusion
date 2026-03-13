@@ -1,5 +1,5 @@
-export default function Tools() {
-  const tools = [
+export default function Services() {
+  const services = [
     {
       name: "Wellhead Equipment Supply",
       description:
@@ -44,10 +44,10 @@ export default function Tools() {
         </section>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {tools.map((tool, i) => (
+          {services.map((service, i) => (
             <div key={i} className="border rounded-lg p-6 space-y-3">
-              <h2 className="text-xl font-semibold">{tool.name}</h2>
-              <p className="text-muted-foreground">{tool.description}</p>
+              <h2 className="text-xl font-semibold">{service.name}</h2>
+              <p className="text-muted-foreground">{service.description}</p>
             </div>
           ))}
         </div>

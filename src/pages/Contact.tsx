@@ -15,6 +15,30 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
+    const subjectLine =
+      formData.subject && formData.subject.length > 0
+        ? `Fusion Limited – ${formData.subject} enquiry`
+        : "Fusion Limited website enquiry"
+
+    const bodyLines = [
+      `Name: ${formData.name}`,
+      `Email: ${formData.email}`,
+      `Subject/Topic: ${formData.subject || "General enquiry"}`,
+      "",
+      "Message:",
+      formData.message,
+      "",
+      "Submitted from the Fusion Limited website contact form.",
+    ]
+
+    const mailtoUrl = `mailto:info@thefusionlimited.com?subject=${encodeURIComponent(
+      subjectLine,
+    )}&body=${encodeURIComponent(bodyLines.join("\n"))}`
+
+    if (typeof window !== "undefined") {
+      window.location.href = mailtoUrl
+    }
+
     setSubmitted(true)
   }
 
@@ -157,7 +181,7 @@ export default function Contact() {
                   <div>
                     <p className="text-sm font-medium text-foreground">Phone</p>
                     <a href="tel:+2348028271207" className="text-muted-foreground hover:text-foreground transition-colors">
-                      +234 (0) 802 827 1207
+                      +234 802 827 1207
                     </a>
                   </div>
                 </div>
