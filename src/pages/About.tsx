@@ -275,31 +275,37 @@ export default function About() {
                 title: "Standard Land Well Programs",
                 description: "Flexible wellhead solutions configured for standard land drilling campaigns and adaptable casing programs.",
                 tag: "Onshore",
+                img: "/image1.jpg",
               },
               {
                 title: "Offshore Development Projects",
                 description: "Installation planning and wellhead execution support tailored for controlled offshore project delivery.",
                 tag: "Offshore",
+                img: "/image2.jpg",
               },
               {
                 title: "HPHT Wellhead Integrity",
                 description: "Advanced materials and metal-to-metal sealing concepts suited to higher pressure and temperature demands.",
                 tag: "HPHT",
+                img: "/image3.jpg",
               },
               {
                 title: "Deepwater & Subsea Installations",
                 description: "Support for subsea wellhead systems, tubing head spools, tieback connectors, and deepwater execution needs.",
                 tag: "Subsea",
+                img: "/image4.jpg",
               },
               {
                 title: "Workover & Intervention Campaigns",
                 description: "Maintenance-led support for re-entry, component change-out, seal replacement, and integrity restoration.",
                 tag: "Workover",
+                img: "/image5.jpg",
               },
               {
                 title: "Recoverable Module Operations",
                 description: "Module retrieval and service support for annulus monitoring and valve/sensor access without full system recovery.",
                 tag: "Monitoring",
+                img: "/image6.jpg",
               },
             ].map((project) => (
               <div
@@ -307,7 +313,7 @@ export default function About() {
                 className="border border-border bg-card/80 backdrop-blur-sm overflow-hidden hover:border-bexoni/40 transition-colors group"
               >
                 <div className="aspect-video bg-secondary/50 flex items-center justify-center">
-                  <span className="text-muted-foreground/40 text-sm">Capability highlight</span>
+                  <img src={project.img} alt={project.title} className="w-full h-full object-cover" />
                 </div>
                 <div className="p-6 space-y-3">
                   <div className="flex items-center gap-2">
