@@ -16,7 +16,17 @@ const ArrowRight = () => (
 
 export function HeroSection() {
   return (
-    <section className="min-h-screen flex items-center justify-center px-4 py-20 relative">
+    <section className="min-h-screen flex items-center justify-center px-4 py-36 relative overflow-hidden" >
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="/well.jpg"
+          alt="Oil well at sunset"
+          className="w-full h-full object-cover"
+        />
+        {/* Dark overlay for readability */}
+        <div className="absolute inset-0 bg-background/85" />
+      </div>
       <div className="max-w-4xl mx-auto text-center relative z-10 animate-fade-in-hero">
         {/* Badge */}
         <div className="inline-flex items-center px-4 py-2 rounded-full bg-foreground/5 backdrop-blur-md border border-border text-muted-foreground text-sm font-medium mb-8 mt-12 animate-fade-in-badge">

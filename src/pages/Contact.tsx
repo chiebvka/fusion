@@ -180,8 +180,8 @@ export default function Contact() {
                   </div>
                   <div>
                     <p className="text-sm font-medium text-foreground">Phone</p>
-                    <a href="tel:+2348028271207" className="text-muted-foreground hover:text-foreground transition-colors">
-                      +234 802 827 1207
+                    <a href="tel:+2348090111187" className="text-muted-foreground hover:text-foreground transition-colors">
+                      +234 809 011 1187
                     </a>
                   </div>
                 </div>

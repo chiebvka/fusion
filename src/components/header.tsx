@@ -16,7 +16,7 @@ export default function Header() {
       </div>
       <nav className="flex fixed top-0 left-0 right-0 z-40 justify-center p-4 md:p-6 pt-10 md:pt-12 text-foreground">
         <div className="md:w-[85%] w-full flex justify-between items-center bg-background/80 backdrop-blur-md border px-6 py-2">
-          <Logo height={64} width={64} />
+          <Logo height={100} width={100} />
 
           <div className="hidden md:flex items-center bg-secondary/80 dark:bg-white/10 backdrop-blur-sm px-1 py-1">
             <Link
