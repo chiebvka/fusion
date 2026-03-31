@@ -11,9 +11,9 @@ export default function Header() {
 
   return (
     <div>
-      <div className="fixed top-0 left-0 right-0 z-50 bg-bexoni text-white text-center text-xs py-1.5 font-medium tracking-wide">
+      {/* <div className="fixed top-0 left-0 right-0 z-50 bg-bexoni text-white text-center text-xs py-1.5 font-medium tracking-wide">
         This project is currently under development — building in progress by <a href="https://www.bexoni.com/" target="_blank" rel="noopener noreferrer" className="underline hover:text-white/80 transition-colors">Bexoni</a>
-      </div>
+      </div> */}
       <nav className="flex fixed top-0 left-0 right-0 z-40 justify-center p-4 md:p-6 pt-10 md:pt-12 text-foreground">
         <div className="md:w-[85%] w-full flex justify-between items-center bg-background/80 backdrop-blur-md border px-6 py-2">
           <Logo height={100} width={100} />
